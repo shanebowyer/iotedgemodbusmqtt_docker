@@ -1,0 +1,21 @@
+{
+  "name": "iotedgemodbusmqtt_docker",
+  "version": "1.0.0",
+  "description": "IoT Edge Router/Controller communicates locally with modbus device and interfaces to the cloud via mqtt",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "IoT",
+    "Modbus",
+    "mqtt",
+    "EdgeRouter"
+  ],
+  "author": "shane bowyer",
+  "license": "ISC",
+  "dependencies": {
+    "iotedgemodbusmqtt": "^1.0.3"
+  }
+}
