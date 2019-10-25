@@ -1,9 +1,10 @@
-# iotedgemodbusmqtt_docker
+# iotedgemodbusmqtt
 https://bitid.co.za
 
 https://blog.bitid.co.za/iotedgemodbusmqtt
 
 <h1>IoT Edge Router/Controller communicates locally with modbus device and interfaces to the cloud via mqtt</h1>
+
 
 <p align="center">
   <img src="https://lh3.googleusercontent.com/eeg5_R7aSlCbE__P-R8QisHuu2VG6uQkwjZ7nuNkS0AFkmlW0qPBeOIp8LinJEjeXd6QQYWsvQ=w371">
@@ -45,24 +46,24 @@ If the value of AI1 changes by more than the cofsSP, the payload will be sent vi
 ```javascript
 let commands = [
     {
-        index: 0,
-        RTUAddress: 1,
-        functionCode: 3,
-        register: 4354,
-        output: [],
-        input: "AI1",
-        cofsSP: 1,
-        cofsValue: null
+        "index": 0,
+        "RTUAddress": 1,
+        "functionCode": 3,
+        "register": 4354,
+        "output": [],
+        "input": "AI1",
+        "cofsSP": 1,
+        "cofsValue": null
     },
     {
-        index: 1,
-        RTUAddress: 1,
-        functionCode: 3,
-        register: 4355,
-        output: [],
-        input: "AI3",
-        cofsSP: 3,
-        cofsValue: null
+        "index": 1,
+        "RTUAddress": 1,
+        "functionCode": 3,
+        "register": 4355,
+        "output": [],
+        "input": "AI3",
+        "cofsSP": 3,
+        "cofsValue": null
     }
 ]
 ```
@@ -72,28 +73,29 @@ Send via MQTT
 
 ```JSON
 {
-    txType: "updateCommands",
-    commands = [
-    {
-        index: 0,
-        RTUAddress: 1,
-        functionCode: 3,
-        register: 4354,
-        output: [],
-        input: "AI1",
-        cofsSP: 1,
-        cofsValue: null
-    },
-    {
-        index: 1,
-        RTUAddress: 1,
-        functionCode: 3,
-        register: 4355,
-        output: [],
-        input: "AI3",
-        cofsSP: 3,
-        cofsValue: null
-    }
+    "txType": "updateCommands",
+    "commands": [
+        {
+            "index": 0,
+            "RTUAddress": 1,
+            "functionCode": 3,
+            "register": 4354,
+            "output": [],
+            "input": "AI1",
+            "cofsSP": 1,
+            "cofsValue": null
+        },
+        {
+            "index": 1,
+            "RTUAddress": 1,
+            "functionCode": 3,
+            "register": 4355,
+            "output": [],
+            "input": "AI3",
+            "cofsSP": 3,
+            "cofsValue": null
+        }
+    ]
 }
 ```
 
@@ -104,11 +106,11 @@ Send the following payload via MQTT
 
 ```JSON
 {
-    txType: "control",
-    data: {
-        modbusId: 1,
-        modbusRegister: 6,
-        value: 200
+    "txType": "control",
+    "data": {
+        "modbusId": 1,
+        "modbusRegister": 6,
+        "value": 200
     }
 }
 ```
@@ -119,8 +121,8 @@ Send the following via MQTT
 
 ```JSON
 {
-    txType: "statusCommands",
-    data: null
+    "txType": "statusCommands",
+    "data": null
 }
 ```
 # Server-Side Payload
@@ -129,34 +131,35 @@ The payload the server receives:
 
 ```JSON
 {
-    rtuId: this.rtuId,
-    txType: 'cofs',         //cofs, fixedTx
-    data: {
-                time: time,
-                TxFlag: 0,
-                digitalsIn: 0,
-                AI1: 0,
-                AI2: 0,
-                AI3: 0,
-                AI4: 0,
-                AIExt1: 0,
-                AIExt2: 0,
-                AIExt3: 0,
-                AIExt4: 0,
-                AIExt5: 0,
-                AIExt6: 0,
-                AIExt7: 0,
-                AIExt8: 0,
-                CI1: 0,
-                CI2: 0,
-                CI3: 0,
-                CI4: 0,
-                CI5: 0,
-                CI6: 0,
-                CI7: 0,
-                CI8: 0,
-                BATT: 0,
-                SIG: 0
+    "rtuId": 1234,
+    "txType": "cofs",         //cofs, fixedTx
+    "data": {
+                "time": 5875757,
+                "date": "2019-10-10 00:00:00",
+                "TxFlag": 0,
+                "digitalsIn": 0,
+                "AI1": 0,
+                "AI2": 0,
+                "AI3": 0,
+                "AI4": 0,
+                "AIExt1": 0,
+                "AIExt2": 0,
+                "AIExt3": 0,
+                "AIExt4": 0,
+                "AIExt5": 0,
+                "AIExt6": 0,
+                "AIExt7": 0,
+                "AIExt8": 0,
+                "CI1": 0,
+                "CI2": 0,
+                "CI3": 0,
+                "CI4": 0,
+                "CI5": 0,
+                "CI6": 0,
+                "CI7": 0,
+                "CI8": 0,
+                "BATT": 0,
+                "SIG": 0
             } 
 }
 ```
@@ -209,6 +212,8 @@ let options = {
 edgeRouter.start(options)
 
 ```
+# Docker Image
+https://github.com/shanebowyer/iotedgemodbusmqtt_docker
 
 # MODBUS TCP
 Currently this module only supports serial communication. I will be adding MODBUS TCP soon!
