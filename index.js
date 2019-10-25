@@ -37,8 +37,8 @@ let options = {
     mqttUserName: config.mqttUserName,
     mqttPassword: config.mqttPassword,
     mqttSubscribe: config.mqttSubscribe, 
-    txTimeSP: 1,
-    enable232: 'false'
+    txTimeSP: 10,
+    enable232: 'true'
 }
 
 edgeRouter.start(options)

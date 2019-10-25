@@ -8,4 +8,4 @@ RUN npm install && apk update && apk add bash
 # Add your source files
 COPY . .  
 COPY config.json config.json
-CMD ["npm","start"]  
+CMD npm start && tail -f /dev/null  
