@@ -16,6 +16,6 @@
   "author": "shane bowyer",
   "license": "ISC",
   "dependencies": {
-    "iotedgemodbusmqtt": "^1.0.5"
+    "iotedgemodbusmqtt": "^1.1.0"
   }
 }
