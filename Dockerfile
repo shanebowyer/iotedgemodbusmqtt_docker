@@ -1,12 +1,14 @@
-#FROM risingstack/alpine:3.7-v8.10.0-4.8.0
-FROM arm32v6/alpine
+# FROM risingstack/alpine:3.7-v8.10.0-4.8.0
+FROM node:10.16.2
 
 
 #COPY package.json package.json  
 COPY package*.json ./
-RUN npm install && apk update && apk add bash
+RUN npm install 
+#&& apk update && apk add bash
 
 # Add your source files
 COPY . .  
 COPY config.json config.json
-CMD npm start && tail -f /dev/null  
+CMD npm start 
+#&& tail -f /dev/null  
