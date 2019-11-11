@@ -21,7 +21,7 @@ let commands = [
         functionCode: 3,
         register: 4355,
         output: [],
-        input: "AI3",
+        input: "AI2",
         cofsSP: 3,
         cofsValue: null
     }

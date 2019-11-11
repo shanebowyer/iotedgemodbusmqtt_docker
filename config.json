@@ -1,5 +1,5 @@
 {
-    "rtuId": 65534,
+    "rtuId": 65530,
     "mqttServer": "mqtt://bitid.co.za",
     "mqttPort": 1888,
     "mqttUserName": "telemetry",
