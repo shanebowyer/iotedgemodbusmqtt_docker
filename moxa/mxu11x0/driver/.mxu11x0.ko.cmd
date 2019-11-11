@@ -1,0 +1,1 @@
+cmd_/home/shane/moxa/mxu11x0/driver/mxu11x0.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/shane/moxa/mxu11x0/driver/mxu11x0.ko /home/shane/moxa/mxu11x0/driver/mxu11x0.o /home/shane/moxa/mxu11x0/driver/mxu11x0.mod.o
